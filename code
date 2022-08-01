@@ -1,0 +1,24 @@
+float sinyal = 0;
+int Hsinyal;
+int Lsinyal;
+int cyc;
+void setup()
+{
+  Serial.begin(9600); /* Haberleşme başlatıldı */
+}
+
+void loop()
+{
+  sinyal = analogRead(A0); /* A0daki gerilim ölçüldü */
+  Serial.print("Sinyal = ");
+  Serial.println(sinyal/204);
+  Hsinyal = pulseIn(A0,1000);
+  Lsinyal = pulseIn(A0,LOW);
+  cyc = Hsinyal+Lsinyal;
+    Serial.println(Hsinyal);
+      Serial.println(Lsinyal);
+        Serial.println(cyc);
+  
+  
+  delay(500);
+}
